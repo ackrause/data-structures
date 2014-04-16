@@ -17,7 +17,7 @@ var makeQueue = function(){
     var temp = storage[start];
     delete storage[start];
     start++;
-    if (start > end){start = end;}
+    if (start > end){start = end = 0;}
     return temp;
   };
 
