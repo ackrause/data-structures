@@ -8,6 +8,8 @@ var makeQueue = function(){
   // Implement the methods below
 
   instance.enqueue = function(value){
+    storage[size] = value;
+    size++;
   };
 
   instance.dequeue = function(){
