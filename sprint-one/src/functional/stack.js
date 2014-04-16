@@ -15,7 +15,9 @@ var makeStack = function(){
     if(size !== 0){
       size--;
     }
-    return (storage[size]);
+    var temp = storage[size];
+    delete storage[size];
+    return temp;
   };
 
   instance.size = function(){
