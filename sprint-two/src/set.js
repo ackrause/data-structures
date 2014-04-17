@@ -7,6 +7,8 @@ var makeSet = function(){
 var setPrototype = {};
 
 setPrototype.add = function(item){
+  this._storage = this._storage || {};
+  this._storage[item] = true;
 };
 
 setPrototype.contains = function(item){
