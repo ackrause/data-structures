@@ -23,6 +23,20 @@ var binarySearchTreeMethods = {
     }
   },
 
-  contains : function(){},
+  contains : function(target){
+    var wasFound = this.value === target;
+
+    if (!wasFound) {
+      if (target > this.value && this.right) {
+        wasFound = this.right.contains(target);
+      } else if (this.left){
+        wasFound = this.left.contains(target);
+      }
+    }
+
+    return wasFound;
+  },
+
+
   depthFirstLog : function(){},
 };
