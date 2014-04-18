@@ -2,9 +2,18 @@ var Graph = function(){
   this.nodes = {};
 };
 
-Graph.prototype.addNode = function(value){
-  var newNode = {value: value, edges: {}};
-  this.nodes[value] = newNode;
+Graph.prototype.addNode = function(fromNode, toNode){
+  var newNode = {value: fromNode, edges: {}};
+  if (toNode) {
+    newNode["edges"][toNode] = true;
+  }
+  this.nodes[fromNode] = newNode;
+
+  // check if this is the second node inserted
+  var nodes = Object.keys(this.nodes);
+  if (nodes.length === 2) {
+    this.addEdge.apply(this, nodes);
+  }
 };
 
 Graph.prototype.contains = function(node){
