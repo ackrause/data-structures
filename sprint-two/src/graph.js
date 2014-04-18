@@ -40,4 +40,8 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
+  if (this.nodes[fromNode] && this.nodes[toNode]) {
+    delete this.nodes[fromNode]["edges"][toNode];
+    delete this.nodes[toNode]["edges"][fromNode];
+  }
 };
