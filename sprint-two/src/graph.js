@@ -25,9 +25,18 @@ Graph.prototype.removeNode = function(node){
 };
 
 Graph.prototype.getEdge = function(fromNode, toNode){
+  if (this.nodes[fromNode] && this.nodes[toNode]) {
+    return this.nodes[fromNode]["edges"][toNode] ? true : false;
+  } else {
+    return false;
+  }
 };
 
 Graph.prototype.addEdge = function(fromNode, toNode){
+  if (this.nodes[fromNode] && this.nodes[toNode]) {
+    this.nodes[fromNode]["edges"][toNode] = true;
+    this.nodes[toNode]["edges"][fromNode] = true;
+  }
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
