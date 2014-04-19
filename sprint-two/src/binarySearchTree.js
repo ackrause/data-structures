@@ -7,6 +7,26 @@ var makeBinarySearchTree = function(value){
 };
 
 var binarySearchTreeMethods = {
+  _getMaxDepth : function() {
+    if (!this.left && !this.right) {
+      return 1;
+    } else {
+      var leftDepth = this.left ? this.left._getMaxDepth() : 0;
+      var rightDepth = this.right? this.right._getMaxDepth() : 0;
+      return Math.max(leftDepth+1, rightDepth+1);
+    }
+  },
+
+  _getMinDepth : function() {
+    if (!this.left && !this.right) {
+      return 1;
+    } else {
+      var leftDepth = this.left ? this.left._getMinDepth() : 0;
+      var rightDepth = this.right ? this.right._getMinDepth() : 0;
+      return Math.min(leftDepth+1, rightDepth+1);
+    }
+  },
+
   insert : function(value){
     if (value < this.value) {
       if (!this.left) {
