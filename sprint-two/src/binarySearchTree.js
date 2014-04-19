@@ -38,13 +38,13 @@ var binarySearchTreeMethods = {
   },
 
   depthFirstLog : function(callback){
+    // process current value
+    callback(this.value);
+
     // process left branch
     if (this.left) {
       this.left.depthFirstLog(callback);
     }
-
-    // process current value
-    callback(this.value);
 
     // process right branch
     if (this.right) {
