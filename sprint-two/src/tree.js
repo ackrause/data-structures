@@ -8,6 +8,7 @@ var makeTree = function(value){
   var newTree = {};
   newTree.value = value;
   newTree.children = undefined;
+  newTree.parent = undefined;
   extend(newTree, treeMethods);
   return newTree;
 };
@@ -17,6 +18,7 @@ var treeMethods = {};
 
 treeMethods.addChild = function(value){
   var child = makeTree(value);
+  child.parent = this;
   if (this.children === undefined) {
     this.children = [];
   }
