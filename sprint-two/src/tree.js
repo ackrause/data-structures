@@ -36,3 +36,13 @@ treeMethods.contains = function(target){
   return found;
 };
 
+treeMethods.removeFromParent = function() {
+  if (this.parent) {
+    var i = this.parent.children.indexOf(this);
+    if (i > -1) {
+      this.parent.children.splice(i,1);
+    }
+  }
+  this.parent = undefined;
+  return this;
+};
