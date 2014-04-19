@@ -57,6 +57,21 @@ var binarySearchTreeMethods = {
     return wasFound;
   },
 
+  breadthFirstLog : function(callback) {
+    var queue = [this];
+
+    while(queue.length > 0) {
+      var node = queue.shift();
+      callback(node.value);
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+    }
+  },
+
   depthFirstLog : function(callback){
     // process current value
     callback(this.value);
